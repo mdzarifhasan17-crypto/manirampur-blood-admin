@@ -24,13 +24,14 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x Admin/gradlew
 
-      - name: Build Admin Debug APK
+      - name: Build Admin Debug APK with Stacktrace
         run: |
           cd Admin
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace --info
 
       - name: Upload Admin APK Artifact
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Admin-Debug-APK
           path: Admin/app/build/outputs/apk/debug/*.apk
