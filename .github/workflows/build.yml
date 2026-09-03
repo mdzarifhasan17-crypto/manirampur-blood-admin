@@ -21,17 +21,35 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      # সংশোধন ১: gradlew ফাইল যেখানেই থাকুক না কেন তা চিহ্নিত করে পারমিশন দেবে
       - name: Grant execute permission for gradlew
-        run: chmod +x Admin/gradlew
-
-      - name: Build Admin Debug APK with Stacktrace
         run: |
-          cd Admin
-          ./gradlew assembleDebug --stacktrace --info
+          if [ -f "Admin/gradlew" ]; then
+            chmod +x Admin/gradlew
+          elif [ -f "gradlew" ]; then
+            chmod +x gradlew
+          else
+            echo "Error: gradlew file not found!"
+          fi
+
+      # সংশোধন ২: gradlew এর লোকেশন অনুযায়ী অ্যাপ বিল্ড করবে
+      - name: Build Admin Debug APK
+        run: |
+          if [ -f "Admin/gradlew" ]; then
+            cd Admin
+            ./gradlew assembleDebug
+          elif [ -f "gradlew" ]; then
+            ./gradlew assembleDebug
+          else
+            echo "Error: gradlew not found to build!"
+            exit 1
+          fi
 
       - name: Upload Admin APK Artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Admin-Debug-APK
-          path: Admin/app/build/outputs/apk/debug/*.apk
+          path: |
+            Admin/app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/debug/*.apk
