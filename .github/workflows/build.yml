@@ -21,8 +21,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-     
-     - name: Create missing .env files
+      # মিসিং .env.example এবং .env ফাইল স্বয়ংক্রিয়ভাবে তৈরি করার স্টেপ
+      - name: Create missing .env files
         run: |
           touch .env.example
           touch .env
