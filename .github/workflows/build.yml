@@ -21,18 +21,24 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # সংশোধন ১: gradlew ফাইল যেখানেই থাকুক না কেন তা চিহ্নিত করে পারমিশন দেবে
+     
+     - name: Create missing .env files
+        run: |
+          touch .env.example
+          touch .env
+          if [ -d "Admin" ]; then
+            touch Admin/.env.example
+            touch Admin/.env
+          fi
+
       - name: Grant execute permission for gradlew
         run: |
           if [ -f "Admin/gradlew" ]; then
             chmod +x Admin/gradlew
           elif [ -f "gradlew" ]; then
             chmod +x gradlew
-          else
-            echo "Error: gradlew file not found!"
           fi
 
-      # সংশোধন ২: gradlew এর লোকেশন অনুযায়ী অ্যাপ বিল্ড করবে
       - name: Build Admin Debug APK
         run: |
           if [ -f "Admin/gradlew" ]; then
