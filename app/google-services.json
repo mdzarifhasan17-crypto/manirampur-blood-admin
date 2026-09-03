@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "49128811278",
+    "project_id": "monirampur-blood-bank",
+    "storage_bucket": "monirampur-blood-bank.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49128811278:android:cc066a42417c4c2e00055f",
+        "android_client_info": {
+          "package_name": "com.zarif.bloodbank.admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvwGpl_-KavL04CsVwIvyJ-tF3R5YfVRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49128811278:android:524540db61880ce700055f",
+        "android_client_info": {
+          "package_name": "com.zarif.bloodbank.user"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvwGpl_-KavL04CsVwIvyJ-tF3R5YfVRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

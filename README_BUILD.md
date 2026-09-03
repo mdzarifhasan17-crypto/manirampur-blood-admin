@@ -1,0 +1,1 @@
+Firebase project: monirampur-blood-bank. This project uses Firestore collections `donors` and `blood_requests` for cross-app synchronization. Before production, replace open Firestore rules with authenticated role-based rules.

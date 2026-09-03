@@ -1,0 +1,6 @@
+{
+  "name": "Manirampur Blood Network - Admin Control Center",
+  "description": "Comprehensive Admin & Moderator Control Panel for Manirampur Blood Network featuring RBAC, real-time analytics, KYC verification, emergency broadcast push, and local services directory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

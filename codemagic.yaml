@@ -1,0 +1,12 @@
+workflows:
+  android-debug:
+    name: Admin Debug APK
+    environment:
+      vars:
+        PACKAGE_NAME: com.zarif.bloodbank.admin
+      java: 21
+    scripts:
+      - name: Build debug APK
+        script: gradle --no-daemon assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
